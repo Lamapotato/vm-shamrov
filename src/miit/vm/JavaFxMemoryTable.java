@@ -122,7 +122,7 @@ public class JavaFxMemoryTable extends Application {
 
     @SuppressWarnings("rawtypes")
 	private ObservableList<Map> generateDataInMap() {
-        int max = 20;
+        int max = 100;
         ObservableList<Map> allData = FXCollections.observableArrayList();
         for (int i = 1; i < max; i++) {
             Map<String, String> dataRow = new HashMap<>();
@@ -137,7 +137,7 @@ public class JavaFxMemoryTable extends Application {
             dataRow.put(Column2, value1);
             dataRow.put(Column1, value1);
             dataRow.put(Column0, value1);
-            dataRow.put(ColumnName, toBin(i));
+            dataRow.put(ColumnName, Long.toHexString(i));
 
             allData.add(dataRow);
         }
