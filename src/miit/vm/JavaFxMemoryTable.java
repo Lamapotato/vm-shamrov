@@ -40,11 +40,11 @@ public class JavaFxMemoryTable extends Application {
 	@Override
     public void start(Stage stage) {
         Scene scene = new Scene(new Group());
-        stage.setTitle("Память");
+        stage.setTitle("ОЗУ");
         stage.setWidth(750);
-        stage.setHeight(500);
+        stage.setHeight(470);
 
-        final Label label = new Label("Таблица памяти");
+        final Label label = new Label("Память ЭВМ (ОЗУ)");
         label.setFont(new Font("Arial", 20));
 
         TableColumn<Map, String> colNumSeven = new TableColumn<>("7");
@@ -122,7 +122,7 @@ public class JavaFxMemoryTable extends Application {
 
     @SuppressWarnings("rawtypes")
 	private ObservableList<Map> generateDataInMap() {
-        int max = 100;
+        int max = 16;
         ObservableList<Map> allData = FXCollections.observableArrayList();
         for (int i = 1; i < max; i++) {
             Map<String, String> dataRow = new HashMap<>();
@@ -137,7 +137,7 @@ public class JavaFxMemoryTable extends Application {
             dataRow.put(Column2, value1);
             dataRow.put(Column1, value1);
             dataRow.put(Column0, value1);
-            dataRow.put(ColumnName, Long.toHexString(i));
+            dataRow.put(ColumnName, toBin(i));
 
             allData.add(dataRow);
         }
